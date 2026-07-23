@@ -1,0 +1,24 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment & config with private API keys
+config.json
+.env
+venv/
+.venv/
+env/
+
+# Temporary audio/video/subtitle scratch files
+*.wav
+*.tmp
+*.log
+bin/ffmpeg*
+bin/ffprobe*
+
+# PyInstaller build artifacts
+build/
+dist/
+*.spec
+
