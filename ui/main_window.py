@@ -62,6 +62,12 @@ class MainWindow(QMainWindow):
         sidebar_layout.addStretch()
         
         # 版權/版本資訊
+        footer_label = QLabel("© 2026 by Famidoc Chang & Antigravity")
+        footer_label.setStyleSheet("color: #8C8C9A; font-size: 10px; padding-bottom: 2px;")
+        footer_label.setWordWrap(True)
+        footer_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        sidebar_layout.addWidget(footer_label)
+
         ver_label = QLabel("v1.0.0 Stable")
         ver_label.setStyleSheet("color: #666677; font-size: 11px;")
         sidebar_layout.addWidget(ver_label, alignment=Qt.AlignmentFlag.AlignCenter)
