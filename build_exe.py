@@ -4,7 +4,7 @@ import subprocess
 import shutil
 
 def build():
-    print("🚀 開始為 Whisper Subtitle Generator 打包免安裝檔 (.exe)...")
+    print("=== Starting build for Whisper Subtitle Generator (.exe) ===")
     
     project_dir = os.path.dirname(os.path.abspath(__file__))
     dist_dir = os.path.join(project_dir, "dist")
@@ -12,7 +12,7 @@ def build():
     try:
         import PyInstaller
     except ImportError:
-        print("📦 正在安裝 PyInstaller...")
+        print("Installing PyInstaller...")
         subprocess.check_call([sys.executable, "-m", "pip", "install", "pyinstaller"])
         
     main_py = os.path.join(project_dir, "main.py")
@@ -36,11 +36,11 @@ def build():
         main_py
     ]
     
-    print(f"🔧 執行指令: {' '.join(cmd)}")
+    print(f"Executing: {' '.join(cmd)}")
     subprocess.check_call(cmd)
     
     output_path = os.path.join(dist_dir, app_name)
-    print(f"\n✅ 打包完成！發布於：\n{output_path}")
+    print(f"=== Build finished! Executable located at: {output_path} ===")
 
 if __name__ == "__main__":
     build()
