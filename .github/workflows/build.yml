@@ -19,7 +19,6 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: "3.11"
-        cache: "pip"
 
     - name: Install dependencies
       run: |
@@ -33,18 +32,18 @@ jobs:
 
     - name: Compress Build Output into Zip
       run: |
-        powershell Compress-Archive -Path dist/WhisperSubtitleGenerator/* -DestinationPath dist/WhisperSubtitleGenerator-Windows.zip
+        powershell Compress-Archive -Path dist/WhisperSubtitleGenerator -DestinationPath WhisperSubtitleGenerator-Windows.zip
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: WhisperSubtitleGenerator-Windows
-        path: dist/WhisperSubtitleGenerator-Windows.zip
+        path: WhisperSubtitleGenerator-Windows.zip
 
     - name: Release Executable on GitHub Release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v2
       with:
-        files: dist/WhisperSubtitleGenerator-Windows.zip
+        files: WhisperSubtitleGenerator-Windows.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
